@@ -13,9 +13,10 @@ print(x)
 
 # Using y, change x so that it is [1, 2, 3, 4, 8, 9, 10]
 # YOUR CODE HERE
-for val in y:
-    x.append(val)
-print(x)
+# for val in y:
+#     x.append(val)
+# print(x)
+x.extend(y)
 
 # Change x so that it is [1, 2, 3, 4, 9, 10]
 # YOUR CODE HERE
