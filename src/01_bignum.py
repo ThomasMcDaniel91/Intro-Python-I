@@ -3,3 +3,6 @@
 
 # YOUR CODE HERE
 print(2 ** 65536)
+
+#JS breaks because it has a max value of 1.7976931348623157e+308 and any number above that
+# gets returned as "MAX_VALUE"

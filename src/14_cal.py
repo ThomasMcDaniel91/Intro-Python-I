@@ -30,15 +30,49 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+import pandas as pd
 
 # print(datetime.now().month)
-cy = datetime.now().year
-cm = datetime.now().month
+# cy = datetime.now().year
+# cm = datetime.now().month
 
+# needs to be printed out to terminal to look like a regular calendar.
 if len(sys.argv) == 2:
   cm = int(sys.argv[1])
 elif len(sys.argv) == 3:
   cm = int(sys.argv[1])
   cy = int(sys.argv[2])
-print(f"A calendar for year {cy}, month {cm}.")
-print(calendar.monthcalendar(year=cy, month=cm))
+else:
+  cy = datetime.now().year
+  cm = datetime.now().month
+# making a list of each day for the values to be added to.
+mon = []
+tues = []
+wed = []
+thurs = []
+fri = []
+sat = []
+sun = []
+#making another list for the months to make below print statement nicer to read.
+months = ['January', 'February', 'March', 'April', 'May',
+          'June', 'July', 'August', 'September', 'October', 'November', 'December']
+print(f"A calendar for {months[cm-1]}, {cy}.")
+for item in calendar.monthcalendar(year=cy, month=cm):
+  mon.append(item[0])
+  tues.append(item[1])
+  wed.append(item[2])
+  thurs.append(item[3])
+  fri.append(item[4])
+  sat.append(item[5])
+  sun.append(item[6])
+
+cal_dict = {'Mon': mon,
+            'Tues': tues,
+            'Wed': wed,
+            'Thurs': thurs,
+            'Fri': fri,
+            'Sat': sat,
+            'Sun': sun}
+df = pd.DataFrame(cal_dict)
+# calendar.prmonth()
+print(df)

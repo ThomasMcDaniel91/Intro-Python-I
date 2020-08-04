@@ -22,9 +22,10 @@ f.close()
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
+# change to put input into a file then create that file and view it in terminal
 
 f = open('src\\bar.txt', 'w', newline='\n')
-f.write('This is the beginning\n')
-f.write("Of my arbitrary content\n")
-f.write("To this file\n")
+for i in range(3):
+    f.write(input() + '\n')
+    i +=1
 f.close()
